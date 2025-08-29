@@ -1,167 +1,221 @@
+/* Add these styles to your page.module.css file */
+
+/* Remove default page margins/padding for full-width effect */
 .page {
-  --gray-rgb: 0, 0, 0;
-  --gray-alpha-200: rgba(var(--gray-rgb), 0.08);
-  --gray-alpha-100: rgba(var(--gray-rgb), 0.05);
-
-  --button-primary-hover: #383838;
-  --button-secondary-hover: #f2f2f2;
-
-  display: grid;
-  grid-template-rows: 20px 1fr 20px;
-  align-items: center;
-  justify-items: center;
-  min-height: 100svh;
-  padding: 80px;
-  gap: 64px;
-  font-family: var(--font-geist-sans);
-}
-
-@media (prefers-color-scheme: dark) {
-  .page {
-    --gray-rgb: 255, 255, 255;
-    --gray-alpha-200: rgba(var(--gray-rgb), 0.145);
-    --gray-alpha-100: rgba(var(--gray-rgb), 0.06);
-
-    --button-primary-hover: #ccc;
-    --button-secondary-hover: #1a1a1a;
-  }
+  margin: 0;
+  padding: 0;
+  width: 100%;
 }
 
 .main {
-  display: flex;
-  flex-direction: column;
-  gap: 32px;
-  grid-row-start: 2;
-}
-
-.main ol {
-  font-family: var(--font-geist-mono);
-  padding-left: 0;
   margin: 0;
-  font-size: 14px;
-  line-height: 24px;
-  letter-spacing: -0.01em;
-  list-style-position: inside;
+  padding: 0;
+  width: 100%;
 }
 
-.main li:not(:last-of-type) {
-  margin-bottom: 8px;
+.navbar {
+  background-color: #071A60;
 }
 
-.main code {
-  font-family: inherit;
-  background: var(--gray-alpha-100);
-  padding: 2px 4px;
-  border-radius: 4px;
-  font-weight: 600;
+/* Hero Carousel - Full width like Booking.com */
+.heroCarousel {
+  width: 100vw !important;
+  height: 70vh !important; /* 70% of viewport height */
+  margin: 0 !important;
+  padding: 0 !important;
+  position: relative;
+  left: 50%;
+  right: 50%;
+  margin-left: -50vw !important;
+  margin-right: -50vw !important;
 }
 
-.ctas {
-  display: flex;
-  gap: 16px;
+/* Carousel item container */
+.carouselImageContainer {
+  position: relative;
+  width: 100%;
+  height: 70vh;
+  overflow: hidden;
 }
 
-.ctas a {
-  appearance: none;
-  border-radius: 128px;
-  height: 48px;
+/* Hero images - full cover */
+.heroImage {
+  width: 100% !important;
+  height: 100% !important;
+  object-fit: cover !important;
+  object-position: center !important;
+}
+
+/* Dark overlay for better text readability - like Booking.com */
+.overlay {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: linear-gradient(
+    135deg,
+    rgba(0, 0, 0, 0.4) 0%,
+    rgba(0, 0, 0, 0.2) 50%,
+    rgba(0, 0, 0, 0.3) 100%
+  );
+  z-index: 1;
+}
+
+/* Hero captions - positioned like Booking.com */
+.heroCaption {
+  position: absolute !important;
+  bottom: 20% !important;
+  left: 50% !important;
+  transform: translateX(-50%) !important;
+  text-align: center !important;
+  z-index: 10 !important;
+  max-width: 800px;
   padding: 0 20px;
-  border: 1px solid transparent;
-  transition:
-    background 0.2s,
-    color 0.2s,
-    border-color 0.2s;
-  cursor: pointer;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  font-size: 16px;
-  line-height: 20px;
-  font-weight: 500;
 }
 
-a.primary {
-  background: var(--foreground);
-  color: var(--background);
-  gap: 8px;
+/* Hero title styling */
+.heroTitle {
+  font-size: 3.5rem !important;
+  font-weight: 700 !important;
+  color: white !important;
+  text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.7) !important;
+  margin-bottom: 1rem !important;
+  line-height: 1.2 !important;
 }
 
-a.secondary {
-  border-color: var(--gray-alpha-200);
-  min-width: 158px;
+/* Hero subtitle */
+.heroSubtitle {
+  font-size: 1.4rem !important;
+  color: white !important;
+  text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.7) !important;
+  margin-bottom: 2rem !important;
+  opacity: 0.95;
+  font-weight: 400;
 }
 
-.footer {
-  grid-row-start: 3;
-  display: flex;
-  gap: 24px;
+/* Hero CTA button - Booking.com style */
+.heroButton {
+  background: #003580 !important; /* Booking.com blue */
+  color: white !important;
+  border: none !important;
+  padding: 15px 35px !important;
+  font-size: 1.1rem !important;
+  font-weight: 600 !important;
+  border-radius: 4px !important;
+  cursor: pointer !important;
+  transition: all 0.3s ease !important;
+  text-transform: uppercase !important;
+  letter-spacing: 0.5px !important;
+  box-shadow: 0 4px 12px rgba(0, 53, 128, 0.4) !important;
 }
 
-.footer a {
-  display: flex;
-  align-items: center;
-  gap: 8px;
+.heroButton:hover {
+  background: #00224f !important;
+  transform: translateY(-2px) !important;
+  box-shadow: 0 6px 20px rgba(0, 53, 128, 0.6) !important;
 }
 
-.footer img {
-  flex-shrink: 0;
+/* Carousel controls styling */
+.heroCarousel .carousel-control-prev,
+.heroCarousel .carousel-control-next {
+  width: 5% !important;
+  opacity: 0.8 !important;
 }
 
-/* Enable hover only on non-touch devices */
-@media (hover: hover) and (pointer: fine) {
-  a.primary:hover {
-    background: var(--button-primary-hover);
-    border-color: transparent;
+.heroCarousel .carousel-control-prev-icon,
+.heroCarousel .carousel-control-next-icon {
+  width: 40px !important;
+  height: 40px !important;
+  background-color: rgba(0, 0, 0, 0.5) !important;
+  border-radius: 50% !important;
+  background-size: 20px !important;
+}
+
+/* Carousel indicators */
+.heroCarousel .carousel-indicators {
+  bottom: 30px !important;
+  margin: 0 !important;
+}
+
+.heroCarousel .carousel-indicators button {
+  width: 12px !important;
+  height: 12px !important;
+  border-radius: 50% !important;
+  margin: 0 5px !important;
+  background-color: rgba(255, 255, 255, 0.5) !important;
+  border: 2px solid white !important;
+  opacity: 0.7 !important;
+}
+
+.heroCarousel .carousel-indicators button.active {
+  background-color: white !important;
+  opacity: 1 !important;
+  transform: scale(1.2) !important;
+}
+
+/* Responsive adjustments */
+@media (max-width: 768px) {
+  .heroCarousel {
+    height: 50vh !important;
   }
 
-  a.secondary:hover {
-    background: var(--button-secondary-hover);
-    border-color: transparent;
+  .carouselImageContainer {
+    height: 50vh;
   }
 
-  .footer a:hover {
-    text-decoration: underline;
-    text-underline-offset: 4px;
+  .heroTitle {
+    font-size: 2.2rem !important;
+    margin-bottom: 0.5rem !important;
+  }
+
+  .heroSubtitle {
+    font-size: 1.1rem !important;
+    margin-bottom: 1.5rem !important;
+  }
+
+  .heroButton {
+    padding: 12px 25px !important;
+    font-size: 1rem !important;
+  }
+
+  .heroCaption {
+    bottom: 15% !important;
+    max-width: 90%;
   }
 }
 
-@media (max-width: 600px) {
-  .page {
-    padding: 32px;
-    padding-bottom: 80px;
+@media (max-width: 576px) {
+  .heroCarousel {
+    height: 45vh !important;
   }
 
-  .main {
-    align-items: center;
+  .carouselImageContainer {
+    height: 45vh;
   }
 
-  .main ol {
-    text-align: center;
+  .heroTitle {
+    font-size: 1.8rem !important;
   }
 
-  .ctas {
-    flex-direction: column;
+  .heroSubtitle {
+    font-size: 1rem !important;
   }
 
-  .ctas a {
-    font-size: 14px;
-    height: 40px;
-    padding: 0 16px;
-  }
-
-  a.secondary {
-    min-width: auto;
-  }
-
-  .footer {
-    flex-wrap: wrap;
-    align-items: center;
-    justify-content: center;
+  .heroButton {
+    padding: 10px 20px !important;
+    font-size: 0.9rem !important;
   }
 }
 
-@media (prefers-color-scheme: dark) {
-  .logo {
-    filter: invert();
-  }
+/* Ensure smooth transitions */
+.heroCarousel .carousel-item {
+  transition: transform 0.8s ease-in-out !important;
+}
+
+/* Fix for Next.js Image component in carousel */
+.heroCarousel .carousel-item img {
+  width: 100% !important;
+  height: 100% !important;
+  object-fit: cover !important;
 }

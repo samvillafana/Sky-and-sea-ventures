@@ -1,0 +1,132 @@
+/* Contact Page CSS - Booking.com Style */
+
+.page {
+  margin: 0;
+  padding: 0;
+  width: 100%;
+}
+
+.main {
+  margin: 0;
+  padding: 0;
+  width: 100%;
+}
+
+.navbar {
+  background-color: #071a60;
+  position: relative;
+  z-index: 1000;
+}
+
+/* Hero Image Container - Full width like Booking.com */
+.heroImageContainer {
+  width: 100vw !important;
+  height: 50vh !important; /* 50% of viewport height - scaled down */
+  margin: 0 !important;
+  padding: 0 !important;
+  position: relative;
+  left: 50%;
+  right: 50%;
+  margin-left: -50vw !important;
+  margin-right: -50vw !important;
+  overflow: hidden;
+}
+
+/* Hero image - show entire business card */
+.heroImage {
+  width: 100% !important;
+  height: 100% !important;
+  object-fit: contain !important; /* Shows entire image without cropping */
+  object-position: center !important;
+}
+
+/* Dark overlay for better text readability - like Booking.com */
+.overlay {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: linear-gradient(
+    135deg,
+    rgba(0, 0, 0, 0.4) 0%,
+    rgba(0, 0, 0, 0.2) 50%,
+    rgba(0, 0, 0, 0.3) 100%
+  );
+  z-index: 1;
+}
+
+/* Hero captions - positioned to not cover business card */
+.heroCaption {
+  position: absolute !important;
+  bottom: 10% !important;
+  right: 5% !important;
+  transform: none !important;
+  text-align: right !important;
+  z-index: 10 !important;
+  max-width: 400px;
+  padding: 0 20px;
+}
+
+/* Hero title styling */
+.heroTitle {
+  font-size: 3.5rem !important;
+  font-weight: 700 !important;
+  color: white !important;
+  text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.7) !important;
+  margin-bottom: 1rem !important;
+  line-height: 1.2 !important;
+}
+
+/* Hero subtitle */
+.heroSubtitle {
+  font-size: 1.4rem !important;
+  color: white !important;
+  text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.7) !important;
+  margin-bottom: 2rem !important;
+  opacity: 0.95;
+  font-weight: 400;
+}
+
+/* Responsive adjustments */
+@media (max-width: 768px) {
+  .heroImageContainer {
+    height: 40vh !important;
+  }
+
+  .heroTitle {
+    font-size: 2.2rem !important;
+    margin-bottom: 0.5rem !important;
+  }
+
+  .heroSubtitle {
+    font-size: 1.1rem !important;
+    margin-bottom: 1.5rem !important;
+  }
+
+  .heroCaption {
+    bottom: 5% !important;
+    right: 5% !important;
+    max-width: 70%;
+    text-align: center !important;
+  }
+}
+
+@media (max-width: 576px) {
+  .heroImageContainer {
+    height: 35vh !important;
+  }
+
+  .heroTitle {
+    font-size: 1.8rem !important;
+  }
+
+  .heroSubtitle {
+    font-size: 1rem !important;
+  }
+}
+
+/* Ensure smooth appearance */
+.heroImageContainer img {
+  object-fit: scale-down !important;
+}
